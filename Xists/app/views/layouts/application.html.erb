@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Xists</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="nav-bar">
+  <ul>
+    <li><%= link_to "logout", logout_path %></li>
+  </ul>
+</div>
+<%= yield %>
+
+</body>
+</html>

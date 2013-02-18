@@ -1,0 +1,21 @@
+<% @xists.each do |xist| %>
+
+  <h1><%= xist.title %></h1>
+  <div class="button-container
+    <%= "favorited" if has_favorite?(@current_user, xist) %> ">
+  <%= button_to "Favorite", xist_favorite_path(
+          :user_id => @current_user.id, :xist_id => xist.id),
+          :method => :post, :remote => true, :form_class => 'favorite-form',
+          :class => 'favorite-button' %>
+  <%= button_to "Unfavorite", xist_favorite_path(
+          :user_id => @current_user.id, :xist_id => xist.id),
+          :method => :delete, :remote => true,
+          :form_class => 'unfavorite-form',
+          :class => 'unfavorite-button' %>
+  </div>
+    <% xist.xist_files.each do |file| %>
+    <h2><%= file.title %></h2>
+    <h5><%= file.body %></h5>
+  <% end %>
+
+<% end %>
