@@ -1,6 +1,6 @@
 <% @xists.each do |xist| %>
 
-  <h1><%= xist.title %></h1>
+  <h1 class="xist_title"><%= xist.title %></h1>
   <div class="button-container
     <%= "favorited" if has_favorite?(@current_user, xist) %> ">
   <%= button_to "Favorite", xist_favorite_path(
@@ -13,9 +13,10 @@
           :form_class => 'unfavorite-form',
           :class => 'unfavorite-button' %>
   </div>
+  <br>
     <% xist.xist_files.each do |file| %>
-    <h2><%= file.title %></h2>
-    <h5><%= file.body %></h5>
+    <h2 class="file_title"><%= file.title %></h2>
+    <pre class="file_body"><%= file.body %></pre>
   <% end %>
 
 <% end %>

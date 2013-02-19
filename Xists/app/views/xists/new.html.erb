@@ -1,0 +1,18 @@
+<%= simple_form_for @xist do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<%= f.hidden_field :user_id, :value => @current_user.id %>
+<div class="xist-files">
+  <%= f.simple_fields_for :xist_files do |sff| %>
+    <div class="xist-file-form">
+      <%= sff.input :title %>
+      <%= sff.input :body %>
+      <%= link_to "remove xist file", "#", :class => 'kill-me' %>
+    </div>
+  <% end %>
+</div>
+<%= link_to "add xist file", "#", :class => 'add-me' %>
+<br>
+
+<%= f.submit %>
+<% end %>
