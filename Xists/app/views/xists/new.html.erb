@@ -2,7 +2,19 @@
 <%= f.label :title %>
 <%= f.text_field :title %>
 <%= f.hidden_field :user_id, :value => @current_user.id %>
+
+<div class="autocomplete-box">
+  <input type="text" class="text-form-box">
+</div>
+<ul class="chosen-tags">
+
+</ul>
+<div class="chosen-tags-container">
+
+</div>
+
 <div class="xist-files">
+
   <%= f.simple_fields_for :xist_files do |sff| %>
     <div class="xist-file-form">
       <%= sff.input :title %>

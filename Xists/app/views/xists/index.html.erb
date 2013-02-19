@@ -1,8 +1,12 @@
 <% @xists.each do |xist| %>
+<div class="xist-container">
 
   <h1 class="xist_title"><%= xist.title %></h1>
   <div class="button-container
     <%= "favorited" if has_favorite?(@current_user, xist) %> ">
+  <% xist.tags.each do |tag| %>
+    <span class="tag"><%= tag.name %></span>
+  <% end %>
   <%= button_to "Favorite", xist_favorite_path(
           :user_id => @current_user.id, :xist_id => xist.id),
           :method => :post, :remote => true, :form_class => 'favorite-form',
@@ -18,5 +22,5 @@
     <h2 class="file_title"><%= file.title %></h2>
     <pre class="file_body"><%= file.body %></pre>
   <% end %>
-
+</div>
 <% end %>
